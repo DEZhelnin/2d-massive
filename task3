@@ -1,0 +1,38 @@
+#include  <iostream>
+#include <ctime>
+using namespace std;
+int vvod(int** mas, int n, int m) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			mas[i][j] = rand() % 10 ;
+		}
+	}
+	return 0;
+}
+int viy(int** mas, int n, int m) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			cout << mas[i][j]<<" ";
+		}
+		cout << endl;
+	}
+	return 0;
+}
+int main() {
+	setlocale(LC_ALL, "Rus");
+	srand(time(0));
+	int n;
+	cin >> n;
+	int** mas = new int* [n];
+	for (int i = 0; i < n; i++) {
+		mas[i] = new int[n];
+	}
+	vvod(mas, n, n);
+	viy(mas, n, n);
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n - i - 1; j++) {
+			swap(mas[i][j], mas[n - 1 - j][n - 1 - i]);
+		}
+	}
+	viy(mas, n, n);
+}
