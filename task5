@@ -1,0 +1,53 @@
+#include  <iostream>
+#include <ctime>
+using namespace std;
+int vvod(int** mas, int n, int m) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			mas[i][j] = rand() % 10 ;
+		}
+	}
+	return 0;
+}
+int viy(int** mas, int n, int m) {
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			cout << mas[i][j]<<" ";
+		}
+		cout << endl;
+	}
+	return 0;
+}
+int find_max(int* mas, int size){
+	int max = mas[1];
+	for (int i = 1; i < size; i++) {
+		if (mas[i] > max) max = mas[i];
+	}
+	return(max);
+}
+
+int find_min_index(int* mas, int size)
+{
+	int min = 0;
+	for (int i = 1; i < size; i++)
+		if (mas[i] < mas[min]) min = i;
+
+	return(min);
+}
+int main() {
+	setlocale(LC_ALL, "Rus");
+	srand(time(0));
+	int n,m;
+	cin >> n>>m;
+	int** mas = new int* [n];
+	for (int i = 0; i < n; i++) {
+		mas[i] = new int[m];
+	}
+	vvod(mas, n, m);
+	for (int i = n-1;i>0 ; i--){
+		int t = find_min_index(mas[i], m);
+		mas[i][t] = find_max(mas[i - 1], m);
+	}
+	
+	viy(mas, n, m);
+}
