@@ -35,4 +35,5 @@ int main() {
 		}
 	}
 	viy(mas, n, n);
+	delete[] mas;
 }
