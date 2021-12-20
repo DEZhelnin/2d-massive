@@ -50,5 +50,8 @@ int main() {
 	}
 	
 	viy(mas, n, m);
+	for( int i=0;i<m; i++){
+		delete[] mas[i];
+		}
 	delete[] mas;
 }
