@@ -48,5 +48,16 @@ int main() {
 		}
 	}
 	viy(mas2, n, n);
+	for( int i=0;i<m; i++){
+		delete[] mas[i];
+		}
 	delete[] mas;
+	for( int i=0;i<m; i++){
+		delete[] mas1[i];
+		}
+	delete[] mas1;
+	for( int i=0;i<m; i++){
+		delete[] mas2[i];
+		}
+	delete[] mas2;
 }
