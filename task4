@@ -65,5 +65,8 @@ int vsun1(int** mas, int n, int m) {
 				swap(mas[iMin][i], mas[i][jMin]);
 			}
 		viy(mas, n, n);
+	for( int i=0;i<m; i++){
+		delete[] mas[i];
+		}
 	delete[] mas;
 	}
